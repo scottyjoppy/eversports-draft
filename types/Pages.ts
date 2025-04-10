@@ -1,7 +1,7 @@
 import { PortableTextBlock } from "sanity";
 
 export type Page = {
-    url: Url;
+    url: URL;
     _id: string;
     _createdAt: Date;
     title: string;
