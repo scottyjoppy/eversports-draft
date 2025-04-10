@@ -3,9 +3,7 @@ import { PortableText } from "@portabletext/react";
 import { getPage } from "../../../../sanity/sanity-utils";
 
 type Props = {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: Promise<{ slug: string }>;
 };
 
 export default async function Page({ params }: Props) {
