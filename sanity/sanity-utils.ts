@@ -39,7 +39,8 @@ export async function getPages(): Promise<Page[]> {
       _createdAt,
       title,
       "slug": slug.current,
-      content
+      content,
+      url,
       }`
   );
 }
@@ -51,7 +52,8 @@ export async function getPage(slug: string): Promise<Page> {
       _createdAt,
       title,
       "slug": slug.current,
-      content
+      content,
+      url,
     }`,
     { slug }
   );
