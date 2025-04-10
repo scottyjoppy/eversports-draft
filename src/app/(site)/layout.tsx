@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
-import { getPages } from "../../../sanity/sanity-utils";
 import "../globals.css";
 
 const figtree = Figtree({
@@ -19,8 +18,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pages = await getPages();
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${figtree.variable} font-sans antialiased`}>
