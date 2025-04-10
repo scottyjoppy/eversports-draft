@@ -1,13 +1,16 @@
+import myPortableTextComponents from "@/components/myPortableTextComponents";
 import { PortableText } from "@portabletext/react";
 import { getPage } from "../../../../sanity/sanity-utils";
-import myPortableTextComponents from "@/components/myPortableTextComponents";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{
+    slug: string;
+  }>;
 };
 
 export default async function Page({ params }: Props) {
-  const page = await getPage(params.slug);
+    const { slug } = await params
+    const page = await getPage(slug);
 
   return (
     <div>
@@ -15,7 +18,10 @@ export default async function Page({ params }: Props) {
         {page.title}
       </h1>
       <div className="text-lg text-gray-700 mt-10">
-        <PortableText value={page.content} components={myPortableTextComponents}/>
+        <PortableText
+          value={page.content}
+          components={myPortableTextComponents}
+        />
       </div>
     </div>
   );
