@@ -20,7 +20,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${figtree.variable} font-sans antialiased`}>
+      <body className={`${figtree.variable} font-sans antialiased bg-background`}>
         <Navbar />
         <div className="max-w-7xl mx-auto">
           <main className="py-20">{children}</main>

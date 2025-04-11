@@ -7,7 +7,7 @@ export default async function Pages() {
   return (
     <div className="flex items-center gap-3">
       {pages.map((page, index) => (
-        <>
+        <div key={page._id} className="flex gap-3">
           <Link
             key={page._id}
             href={`${page.url}`}
@@ -17,9 +17,9 @@ export default async function Pages() {
             {page.title}
           </Link>
           {index < pages.length - 1 && (
-            <span className="text-[var(--black)]/30">|</span>
+            <div className="text-black/30">|</div>
           )}
-        </>
+        </div>
       ))}
     </div>
   );
