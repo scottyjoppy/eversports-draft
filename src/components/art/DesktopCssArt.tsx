@@ -7,7 +7,7 @@ interface Props {
 export const DesktopCssArt = ({className}: Props) => {
   return (
     <div
-      className={`${className} relative border-t-22 bg-gray-100 border-gray-100 w-full h-100 rounded-tl-2xl rounded-tr-2xl`}
+      className={`${className} absolute left-1/2 transform -translate-x-1/2 border-t-22 bg-gray-100 border-gray-100 w-[1000px] h-100 rounded-tl-2xl rounded-tr-2xl`}
     >
       <div className="flex pl-5 gap-2">
         <div className="rounded-full bg-gray-200 w-5 h-5"></div>
