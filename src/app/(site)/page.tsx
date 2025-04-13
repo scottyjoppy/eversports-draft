@@ -1,9 +1,7 @@
-import { CalendarCssArt } from "@/components/art/CalendarCssArt";
 import { DesktopCssArt } from "@/components/art/DesktopCssArt";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { getProjects } from "../../../sanity/sanity-utils";
-import Hero from "@/components/ScrollBox";
 
 export default async function Home() {
   const projects = await getProjects();
