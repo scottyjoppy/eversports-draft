@@ -48,3 +48,10 @@
 body {
   font-family: var(--font-figtree), sans-serif;
 }
+
+@layer utilities {
+  .parallax-content {
+    transform: translateY(calc(var(--scroll) * 0.4));
+    transition: transform 0.1s ease-out;
+  }
+}

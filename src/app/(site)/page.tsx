@@ -3,6 +3,7 @@ import { DesktopCssArt } from "@/components/art/DesktopCssArt";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { getProjects } from "../../../sanity/sanity-utils";
+import Hero from "@/components/ScrollBox";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -21,30 +22,30 @@ export default async function Home() {
   return (
     <>
       <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl text-center mt-5 text-foreground">
-            Book Sports.
-          </h1>
-          <h1 className="text-5xl text-center mt-5 text-foreground">
-            Stay Motivated.
-          </h1>
-          <p className="text-center">
-            Stay flexible and book your activities when and how it suits you best.
-          </p>
+        <h1 className="text-5xl text-center mt-5 text-foreground">
+          Book Sports.
+        </h1>
+        <h1 className="text-5xl text-center mt-5 text-foreground">
+          Stay Motivated.
+        </h1>
+        <p className="text-center">
+          Stay flexible and book your activities when and how it suits you best.
+        </p>
         <div className="max-w-5xl mx-10">
           <div className="flex my-10 h-[60vh]">
             <DesktopCssArt />
-            <CalendarCssArt />
+            {/* <CalendarCssArt /> */}
             {/* <Image
-              src="/images/homepage(1).webp"
-              alt="eversports logo"
-              fill
-              className="object-contain"
-              /> */}
+                  src="/images/homepage(1).webp"
+                  alt="eversports logo"
+                  fill
+                  className="object-contain"
+                  /> */}
           </div>
         </div>
       </div>
       <div className="bg-gray-100 mt-30">
-        <div className="grid lg:grid-cols-6 md:grid-cols-6 grid-cols-6 gap-8 auto-rows-[300px] p-10  mx-50">
+        <div className="grid lg:grid-cols-6 md:grid-cols-6 grid-cols-6 gap-8 auto-rows-[300px] p-10 mx-5 max-w-2/3">
           {projects.map((project, index) => {
             const item = gridItems[index] || { classes: "" };
             return (

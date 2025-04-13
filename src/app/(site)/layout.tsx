@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "../globals.css";
+import Hero from "@/components/ScrollBox";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -22,8 +23,9 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${figtree.variable} font-sans antialiased bg-background`}>
         <Navbar />
+        <Hero />
         <div className="mx-auto">
-          <main className="py-20">{children}</main>
+          {children}
         </div>
       </body>
     </html>

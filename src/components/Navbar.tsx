@@ -9,7 +9,7 @@ interface NavbarProps {
 export default function Navbar({ className }: NavbarProps) {
   return (
     <div
-      className={`${className} z-1000 sticky top-0 w-full h-15 bg-background flex justify-between items-center px-5 border-b-1 border-black/10 text-black/50`}
+      className={`${className} z-1000 fixed top-0 w-full h-15 bg-background flex justify-between items-center px-5 border-b-1 border-black/10 text-black/50`}
     >
       <div className="relative lg:w-[140px] md:w-[120px] w-[100px] aspect-[3/1]">
           <Link href="/">
