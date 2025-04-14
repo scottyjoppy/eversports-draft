@@ -11,8 +11,10 @@
   "dependencies": {
     "@portabletext/react": "^3.2.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.7.2",
     "gsap": "^3.12.7",
     "lenis": "^1.2.3",
+    "motion": "^12.7.2",
     "next": "15.3.0",
     "next-sanity": "^9.9.9",
     "react": "^19.0.0",

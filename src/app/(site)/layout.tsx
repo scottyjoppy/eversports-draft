@@ -1,8 +1,8 @@
-import Navbar from "@/components/Navbar";
+import NavbarWrapper from "@/components/NavbarWrapper";
+import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "../globals.css";
-import Hero from "@/components/ScrollBox";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -21,12 +21,11 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${figtree.variable} font-sans antialiased bg-background`}>
-        <Navbar />
-        <Hero />
-        <div className="mx-auto">
-          {children}
-        </div>
+      <body
+        className={`${figtree.variable} font-sans antialiased bg-background`}
+      >
+        <NavbarWrapper />
+        <ReactLenis root>{children}</ReactLenis>
       </body>
     </html>
   );
