@@ -3,39 +3,14 @@
 
 @theme {
   /* Base colors */
-  --color-background: #95d2b3;
-  --color-foreground: #55ad9b;
-  --color-primary: #b3d8a8;
-  --color-secondary: #fbffe4;
-  --color-tertiary: #a3d1c6;
-  --color-ring: #3d8d7a;
+  --color-primary: #c9f9f1;
+  --color-secondary: #97f4e5;
+  --color-tertiary: #23a18c;
+  --color-fortiary: #158774;
+  --color-ring: #0c5e50;
   --color-black: #121414;
 
   /* Extended palette */
-  --color-primary-50: #ebfaf8;
-  --color-primary-100: #ccf4ef;
-  --color-primary-200: #9feae1;
-  --color-primary-300: #4ce0d0;
-  --color-primary-400: #19d0bc;
-  --color-primary-500: #0e7a6e;
-  --color-primary-600: #0b665c;
-  --color-primary-700: #095249;
-  --color-primary-800: #073d37;
-  --color-primary-900: #042925;
-
-  /* Accent Colors */
-  --color-accent-50: #fff0f0;
-  --color-accent-100: #ffd9d9;
-  --color-accent-200: #ffb3b3;
-  --color-accent-300: #ff8c8c;
-  --color-accent-400: #ff6b6b;
-  --color-accent-500: #ff4444;
-  --color-accent-600: #ff1f1f;
-  --color-accent-700: #f50000;
-  --color-accent-800: #cc0000;
-  --color-accent-900: #a30000;
-
-  /* Cool Grays */
   --color-gray-50: #f8fafa;
   --color-gray-100: #eef1f1;
   --color-gray-200: #e1e5e5;

@@ -38,6 +38,12 @@ const project = {
       type: "array",
       of: [{ type: "block" }],
     },
+    {
+      name: "sortOrder",
+      title: "Sort Order",
+      type: "number",
+      description: "Lower numbers show up first"
+    }
   ],
 };
 

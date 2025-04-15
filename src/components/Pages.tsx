@@ -12,7 +12,7 @@ export default async function Pages() {
             <Link
               key={page._id}
               href={`${page.url}`}
-              className="hover:text-black/20 transition-colors duration-200 ease-in-out"
+              className="hover:text-gray-600 transition-colors duration-100 ease-in-out"
               target="_blank"
             >
               {page.title}

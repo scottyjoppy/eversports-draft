@@ -5,7 +5,7 @@ import clientConfig from "./config/client-config";
 
 export async function getProjects(): Promise<Project[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "project"]{
+    groq`*[_type == "project"] | order(sortOrder asc){
         _id,
         _createdAt,
         name,
