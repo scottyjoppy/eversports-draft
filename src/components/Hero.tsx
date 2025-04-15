@@ -114,7 +114,7 @@ const Hero = () => {
           className="my-10 w-full max-w-5xl px-4 relative grid overflow-visible"
           style={{
             gridTemplateColumns: "1fr",
-            height: "600px",
+            height: "clamp(400px, 50vw, 600px)", // Adjust height based on viewport width
           }}
         >
           <motion.div variants={itemVariants} className="absolute inset-0 z-0">
@@ -125,8 +125,8 @@ const Hero = () => {
           <motion.div
             variants={itemVariants}
             className="absolute z-10 
-              right-[-25vw] sm:right-[-20vw] md:right-[-15vw] lg:right-[-10vw]
-              bottom-[15vh]"
+    right-[-25vw] sm:right-[-20vw] md:right-[-15vw] lg:right-[-10vw]
+    top-[200px] sm:top-[180px] md:top-[300px]"
           >
             <CalendarCssArt>
               <Image
@@ -142,8 +142,8 @@ const Hero = () => {
           <motion.div
             variants={itemVariants}
             className="absolute z-10
-              left-[-25vw] sm:left-[-20vw] md:left-[-15vw] lg:left-[-10vw]
-              bottom-[5vh]"
+    left-[-25vw] sm:left-[-20vw] md:left-[-15vw] lg:left-[-10vw]
+    top-[200px] sm:top-[180px] md:top-[300px]"
           >
             <CalendarCssArt>
               <Image

@@ -41,7 +41,7 @@ export default function Navbar({ children, className }: NavbarProps) {
       animate={{ y: 0 }}
       transition={transition}
       className={`${className} z-50 fixed top-0 w-full h-15 ${
-        isScrolled ? "bg-gray-100" : "bg-primary"
+        isScrolled ? "bg-fortiary" : "bg-primary"
       } flex justify-between items-center px-5 border-b-1 border-black/10 text-black transition-all duration-300 ease-in-out`}
     >
       <div className="relative lg:w-[140px] md:w-[120px] w-[100px] aspect-[3/1]">

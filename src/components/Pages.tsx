@@ -5,7 +5,7 @@ export default async function Pages() {
   const pages = await getPages();
 
   return (
-    <div className="absolute z-10 top-0 left-1/2 -translate-x-1/2 w-fit flex justify-center h-full">
+    <div className="absolute z-10 top-0 left-1/2 -translate-x-1/2 w-fit hidden sm:flex justify-center h-full ">
       <div className="flex items-center gap-3">
         {pages.map((page, index) => (
           <div key={page._id} className="flex gap-3">

@@ -15,6 +15,7 @@
     "framer-motion": "^12.7.2",
     "gsap": "^3.12.7",
     "lenis": "^1.2.3",
+    "lodash": "^4.17.21",
     "motion": "^12.7.2",
     "next": "15.3.0",
     "next-sanity": "^9.9.9",

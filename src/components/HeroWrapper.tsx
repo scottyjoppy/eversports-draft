@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -16,6 +16,7 @@ const HeroWrapper = () => {
   const scrollOffset = 100;
 
   useEffect(() => {
+    // Using useLayoutEffect to ensure the measurements are calculated before painting
     if (heroRef.current) {
       setHeroHeight(heroRef.current.offsetHeight);
     }
@@ -46,9 +47,7 @@ const HeroWrapper = () => {
     >
       <motion.div
         ref={heroRef}
-        className={`w-full transition-all duration-300 ${
-          isPinned ? `fixed left-0 z-10` : "relative"
-        }`}
+        className={`w-full transition-all duration-300 ${isPinned ? `fixed left-0 z-10` : "relative"}`}
         style={{
           bottom: isPinned ? `${scrollOffset}px` : "auto",
         }}

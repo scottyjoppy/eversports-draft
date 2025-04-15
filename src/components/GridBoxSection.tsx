@@ -33,7 +33,7 @@ const GridBoxSection = ({ projects }: Props) => {
               className={`bg-tertiary ${item.classes} rounded-2xl px-5 py-1 flex flex-col justify-center items-center`}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.5 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <Link href="#">
