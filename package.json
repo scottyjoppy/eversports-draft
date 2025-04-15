@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@portabletext/react": "^3.2.1",
+    "bootstrap": "^5.3.5",
     "clsx": "^2.1.1",
     "framer-motion": "^12.7.2",
     "gsap": "^3.12.7",

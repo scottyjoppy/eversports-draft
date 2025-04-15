@@ -4,23 +4,25 @@ interface Props {
   className?: string;
 }
 
-export const DesktopCssArt = ({className}: Props) => {
+export const DesktopCssArt = ({ className }: Props) => {
   return (
-    <div
-      className={`${className} absolute left-1/2 transform -translate-x-1/2 border-t-22 bg-gray-100 border-gray-100 w-[1000px] h-100 rounded-tl-2xl rounded-tr-2xl`}
-    >
-      <div className="flex pl-5 gap-2">
-        <div className="rounded-full bg-gray-200 w-5 h-5"></div>
-        <div className="rounded-full bg-gray-200 w-5 h-5"></div>
-        <div className="rounded-full bg-gray-200 w-5 h-5"></div>
-      </div>
-      <div className="relative border-20 bg-gray-100 border-gray-100 w-full h-full rounded-br-2xl rounded-bl-2xl">
-        <Image
-          src="/images/homepage(1).png"
-          alt="eversports logo"
-          fill
-          className="object-cover object-[0_5%] rounded-2xl"
-        />
+    <div className={`${className} flex justify-center`}>
+      <div className="bg-gray-100/30 w-[80vw] h-[600px] rounded-2xl p-5 pb-15 overflow-hidden">
+        <div className="">
+          <div className="rounded-2xl w-full bg-gray-100/30 mb-1 h-10 flex gap-1 py-2 px-3">
+            <div className="rounded bg-gray-100/20 hover:bg-gray-100/30 transition-colors w-40"/>
+            <div className="rounded bg-gray-100/20 hover:bg-gray-100/30 transition-colors w-40"/>
+            <div className="rounded bg-gray-100/20 hover:bg-gray-100/30 transition-colors w-40"/>
+          </div>
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image
+            src="/images/homepage(1).png"
+            alt="eversports logo"
+            fill
+            className="object-cover object-[0_0] rounded-2xl"
+          />
+        </div>
       </div>
     </div>
   );

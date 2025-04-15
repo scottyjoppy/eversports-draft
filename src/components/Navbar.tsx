@@ -11,7 +11,7 @@ interface NavbarProps {
 }
 
 const transition = {
-  delay: 1,
+  delay: 2,
 };
 
 export default function Navbar({ children, className }: NavbarProps) {
@@ -21,7 +21,7 @@ export default function Navbar({ children, className }: NavbarProps) {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={transition}
-        className={`${className} z-50 fixed top-0 w-full h-15 bg-background flex justify-between items-center px-5 border-b-1 border-black/10 text-black/50`}
+        className={`${className} z-50 fixed top-0 w-full h-15 bg-primary flex justify-between items-center px-5 border-b-1 border-black/10 text-black/50`}
       >
         <div className="relative lg:w-[140px] md:w-[120px] w-[100px] aspect-[3/1]">
           <Link href="/">

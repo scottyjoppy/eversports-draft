@@ -1,8 +1,7 @@
-import { DesktopCssArt } from "@/components/art/DesktopCssArt";
+import HeroWrapper from "@/components/HeroWrapper";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { getProjects } from "../../../sanity/sanity-utils";
-import Hero from "@/components/Hero";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -20,8 +19,8 @@ export default async function Home() {
 
   return (
     <>
-      <Hero/>
-      <div className="bg-gray-100 mt-30">
+      <HeroWrapper />
+      <div className="relative bg-gray-100 mt-30 z-10 rounded-t-2xl">
         <div className="grid lg:grid-cols-6 md:grid-cols-6 grid-cols-6 gap-8 auto-rows-[300px] p-10 mx-5 max-w-2/3">
           {projects.map((project, index) => {
             const item = gridItems[index] || { classes: "" };
