@@ -38,7 +38,7 @@ function Carousel({ children, speed }: Props) {
   });
 
   // Prevent dragging past the container limits and wrap the items
-  const handleDragEnd = (e: MouseEvent, info: any) => {
+  const handleDragEnd = () => {
     const container = containerRef.current;
     if (container) {
       const scrollWidth = container.scrollWidth / 2;
