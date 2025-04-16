@@ -1,8 +1,9 @@
+import LanguageSelector from "@/components/LanguageSelector";
+import Layout from "@/components/Layout";
 import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "../globals.css";
-import Layout from "@/components/Layout";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -21,13 +22,10 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${figtree.variable} font-sans antialiased bg-primary`}
-      >
+      <body className={`${figtree.variable} font-sans antialiased bg-primary`}>
+        {/* <LanguageSelector /> */}
         <ReactLenis root>
-          <Layout>
-          {children}
-          </Layout>
+          <Layout>{children}</Layout>
         </ReactLenis>
       </body>
     </html>

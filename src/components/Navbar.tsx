@@ -41,13 +41,13 @@ export default function Navbar({ children, className }: NavbarProps) {
       animate={{ y: 0 }}
       transition={transition}
       className={`${className} z-50 fixed top-0 w-full h-15 ${
-        isScrolled ? "bg-fortiary" : "bg-primary"
-      } flex justify-between items-center px-5 border-b-1 border-black/10 text-black transition-all duration-300 ease-in-out`}
+        isScrolled ? "bg-white" : "bg-white"
+      } flex justify-between items-center px-5 border-b-1 border-white/10 text-black transition-all duration-300 ease-in-out`}
     >
-      <div className="relative lg:w-[140px] md:w-[120px] w-[100px] aspect-[3/1]">
+      <div className="relative w-[200px] aspect-[3/1]">
         <Link href="/">
           <Image
-            src="/images/eversports-logo.svg"
+            src="https://cdn-ilaejnf.nitrocdn.com/cUfbcFhAkfCZjXvdsJwGmghGlDQAcfnr/assets/images/optimized/rev-a4ebde9/www.eversportsmanager.com/wp-content/uploads/2020/11/manager_original.png"
             alt="eversports logo"
             fill
             className="object-contain"

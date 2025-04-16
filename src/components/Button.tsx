@@ -10,7 +10,7 @@ interface ButtonProps {
 const Button = ({ children, className }: ButtonProps) => {
   return (
     <motion.div
-      className={`${className} cursor-pointer rounded-md px-2 py-1`}
+      className={`${className} cursor-pointer`}
       whileHover={{
         scale: 1.04,
         transition: { duration: 0.125, type: "spring" },

@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { CalendarCssArt } from "./art/CalendarCssArt";
 import { DesktopCssArt } from "./art/DesktopCssArt";
+import Button from "./Button";
 
 const textContainerVariants = {
-  hidden: {
-    opacity: 0,
-  },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
@@ -19,114 +19,84 @@ const textContainerVariants = {
 };
 
 const artContainerVariants = {
-  hidden: {
-    opacity: 0,
-  },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 1, // Starts after text animations
-      staggerChildren: 0.4, // Longer delay between art components
+      delayChildren: 1,
+      staggerChildren: 0.4,
     },
   },
 };
 
 const itemVariants = {
-  hidden: {
-    y: 20,
-    opacity: 0,
-  },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: {
-      duration: 1,
-    },
+    transition: { duration: 1 },
   },
 };
 
 const Hero = () => {
   return (
-    <div className="overflow-x-hidden">
-      <motion.div className="max-w-7xl mx-auto h-full flex flex-col items-center mt-30 gap-10 px-4">
+    <section className="overflow-x-hidden justify-center flex">
+      <div className="w-full flex flex-col items-center gap-10">
         <motion.div
           variants={textContainerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center space-y-10"
+          className="relative w-full h-screen max-h-[700px] flex justify-center items-center"
         >
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl text-center text-ring"
-          >
-            Book Sports.
-          </motion.h1>
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl text-center text-ring"
-          >
-            Stay Motivated.
-          </motion.h1>
-          <motion.p
-            variants={itemVariants}
-            className="text-center max-w-2xl text-ring"
-          >
-            Stay flexible and book your activities when and how it suits you
-            best.
-          </motion.p>
-          <div className="w-full flex items-center justify-center">
-            <div className="max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch text-center">
-              <motion.div variants={itemVariants}>
-                <div className="flex flex-col justify-center gap-4 bg-secondary/80 px-2 py-1 rounded-2xl overflow-hidden shadow-xl/2 min-h-[80px] h-full">
-                  <h2 className="font-bold text-xl">
-                    Find your perfect activity
-                  </h2>
-                  <p className="text-black">
-                    Discover new classes, trainers and venues that match your
-                    everyday vibe.
-                  </p>
-                </div>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <div className="flex flex-col justify-center gap-4 bg-secondary/80 px-2 py-1 rounded-2xl overflow-hidden shadow-xl/2 min-h-[80px] h-full">
-                  <h2 className="font-bold text-xl">Book instantly</h2>
-                  <p className="text-black">
-                    Reserve your spot in seconds with our seamless booking
-                    system.
-                  </p>
-                </div>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <div className="flex flex-col justify-center gap-4 bg-secondary/80 px-2 py-1 rounded-2xl overflow-hidden shadow-xl/2 min-h-[80px] h-full">
-                  <h2 className="font-bold text-xl">Stay connected</h2>
-                  <p className="text-black">
-                    Keep track of your bookings and discover new activities.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+          <video
+            src="https://www.eversportsmanager.com/wp-content/uploads/2024/10/ennlfrvideo.mp4"
+            className="absolute left-1/2 transform -translate-x-1/2 top-0 max-w-[1400px] h-full object-cover"
+            style={{
+              clipPath: "inset(0px 0px 5px 5px)",
+              minWidth: "1400px",
+            }}
+            loop
+            muted
+            autoPlay
+            playsInline
+          />
+
+          <div className="absolute flex flex-col top-1/3 left-1/6 gap-6">
+            <motion.h1 variants={itemVariants} className="text-5xl text-white">
+              Join the movement network
+            </motion.h1>
+            <motion.p variants={itemVariants} className="max-w-2xl text-white">
+              More than a management software. A network of more than 4.800
+              partner studios that share the passion for movement.
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <Link href="https://www.eversportsmanager.com/demo/">
+                <Button className="w-fit bg-secondary font-bold uppercase text-black rounded-full px-5 py-3">
+                  Book Demo
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
+
+        {/* Decorative Art Section */}
         <motion.div
           variants={artContainerVariants}
           initial="hidden"
           animate="visible"
-          className="my-10 w-full max-w-5xl px-4 relative grid overflow-visible"
+          className="relative w-full max-w-5xl my-10 grid overflow-visible"
           style={{
             gridTemplateColumns: "1fr",
-            height: "clamp(400px, 50vw, 600px)", // Adjust height based on viewport width
+            height: "clamp(400px, 50vw, 600px)",
           }}
         >
           <motion.div variants={itemVariants} className="absolute inset-0 z-0">
             <DesktopCssArt />
           </motion.div>
 
-          {/* Right calendar - using vw units */}
           <motion.div
             variants={itemVariants}
-            className="absolute z-10 
-    right-[-25vw] sm:right-[-20vw] md:right-[-15vw] lg:right-[-10vw]
-    top-[200px] sm:top-[180px] md:top-[300px]"
+            className="absolute z-10 right-[-25vw] sm:right-[-20vw] md:right-[-15vw] lg:right-[-10vw] top-[200px] sm:top-[180px] md:top-[300px]"
           >
             <CalendarCssArt>
               <Image
@@ -138,12 +108,9 @@ const Hero = () => {
             </CalendarCssArt>
           </motion.div>
 
-          {/* Left calendar - using vw units */}
           <motion.div
             variants={itemVariants}
-            className="absolute z-10
-    left-[-25vw] sm:left-[-20vw] md:left-[-15vw] lg:left-[-10vw]
-    top-[200px] sm:top-[180px] md:top-[300px]"
+            className="absolute z-10 left-[-25vw] sm:left-[-20vw] md:left-[-15vw] lg:left-[-10vw] top-[200px] sm:top-[180px] md:top-[300px]"
           >
             <CalendarCssArt>
               <Image
@@ -155,8 +122,8 @@ const Hero = () => {
             </CalendarCssArt>
           </motion.div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 

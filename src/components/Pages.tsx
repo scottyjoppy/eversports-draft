@@ -18,7 +18,7 @@ export default async function Pages() {
               {page.title}
             </Link>
             {index < pages.length - 1 && (
-              <div className="text-black/30">|</div>
+              <div className="text-black">|</div>
             )}
           </div>
         ))}
