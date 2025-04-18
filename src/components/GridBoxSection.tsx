@@ -23,7 +23,7 @@ const GridBoxSection = ({ projects }: Props) => {
   ];
 
   return (
-    <div className="relative bg-fortiary z-10 rounded-4xl flex justify-center">
+    <section className="relative bg-fortiary z-10 rounded-4xl flex justify-center">
       <div className="grid lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-8 auto-rows-[300px] pt-20 p-10 mx-5 w-full max-w-screen-xl">
         {projects.map((project, index) => {
           const item = gridItems[index] || { classes: "" };
@@ -44,7 +44,7 @@ const GridBoxSection = ({ projects }: Props) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

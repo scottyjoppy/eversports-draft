@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import Button from "./Button";
 
 interface NavbarProps {
@@ -12,37 +11,18 @@ interface NavbarProps {
 }
 
 const transition = {
-  delay: 2,
+  delay: 1.5,
+  duration: 1,
+  ease: easeInOut,
 };
 
 export default function Navbar({ children, className }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Track scroll position and change navbar style
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 1300) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={transition}
-      className={`${className} z-50 fixed top-0 w-full h-15 ${
-        isScrolled ? "bg-white" : "bg-white"
-      } flex justify-between items-center px-5 border-b-1 border-white/10 text-black transition-all duration-300 ease-in-out`}
+      className={`${className} z-50 fixed top-0 w-full h-15 bg-white flex justify-between items-center px-5 text-black`}
     >
       <div className="relative w-[200px] aspect-[3/1]">
         <Link href="/">

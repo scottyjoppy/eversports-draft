@@ -1,15 +1,18 @@
 import GridBoxSection from "@/components/GridBoxSection";
-import HeroWrapper from "@/components/HeroWrapper";
-import Reviews from "@/components/Reviews";
+import Hero from "@/components/Hero";
+import WhySection from "@/components/WhySection";
 import { getProjects } from "../../../sanity/sanity-utils";
+import CssArtSection from "@/components/CssArtSection";
 
 export default async function Home() {
   const projects = await getProjects();
   return (
     <>
-      <HeroWrapper />
+      <Hero />
+      {/* <WhySection /> */}
+      <CssArtSection />
       <GridBoxSection projects={projects} />
-      <Reviews />
+      {/* <Reviews /> */}
     </>
   );
 }

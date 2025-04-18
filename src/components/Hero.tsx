@@ -1,10 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
-import { CalendarCssArt } from "./art/CalendarCssArt";
-import { DesktopCssArt } from "./art/DesktopCssArt";
+import React from "react";
 import Button from "./Button";
 
 const textContainerVariants = {
@@ -14,17 +12,6 @@ const textContainerVariants = {
     transition: {
       delayChildren: 0.3,
       staggerChildren: 0.5,
-    },
-  },
-};
-
-const artContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.8,
-      staggerChildren: 0.2,
     },
   },
 };
@@ -43,96 +30,58 @@ const itemVariants = {
 };
 
 const Hero = () => {
+  const sectionRef = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const display = useTransform(scrollYProgress, [0, 1], ["flex", "none"]);
+
   return (
     <>
-      <section className="h-screen z-0 relative max-w-7xl">
-        <video
+      <section className="relative" ref={sectionRef}>
+        <motion.video
           src="https://www.eversportsmanager.com/wp-content/uploads/2024/10/ennlfrvideo.mp4"
-          className="fixed left-1/2 -translate-x-1/2 top-0 max-w-[1400px] h-full object-cover"
+          className="fixed h-full object-cover w-full bg-no-repeat"
           style={{
+            display,
+            y: useTransform(scrollYProgress, [0, 1], [0, 100]),
             clipPath: "inset(0px 0px 5px 5px)",
-            minWidth: "1400px",
           }}
           loop
           muted
-          autoPlay={false}
+          autoPlay={true}
           playsInline
         />
-        <motion.div
-          variants={textContainerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1
-            variants={itemVariants}
-            className="fixed top-[25%] left-0 sm:left-[5%] md:left-[10%] lg:left-[20%] text-5xl text-white"
-          >
-            Join the movement network
-          </motion.h1>
-
-          <motion.p
-            variants={itemVariants}
-            className="fixed top-[35%] left-0 sm:left-[5%] md:left-[10%] lg:left-[20%] max-w-2xl text-white"
-          >
-            More than a management software...
-          </motion.p>
-
+        <div className="h-screen z-0 relative max-w-7xl w-full flex justify-center">
           <motion.div
-            variants={itemVariants}
-            className="fixed top-[45%] left-0 sm:left-[5%] md:left-[10%] lg:left-[20%]"
+            variants={textContainerVariants}
+            initial="hidden"
+            animate="visible"
+            style={{
+              display,
+              y: useTransform(scrollYProgress, [0, 1], [0, -100]),
+            }}
+            className="fixed top-1/3 flex flex-col gap-10 p-10"
           >
-            <Link href="https://www.eversportsmanager.com/demo/">
-              <Button className="bg-secondary font-bold uppercase text-black rounded-full px-5 py-3">
-                Book Demo
-              </Button>
-            </Link>
+            <motion.h1 variants={itemVariants} className="text-6xl text-white">
+              Join the movement network
+            </motion.h1>
+            <motion.p variants={itemVariants} className="text-white">
+              More than a management software...
+            </motion.p>
+            <motion.div variants={itemVariants} className="w-fit">
+              <Link href="https://www.eversportsmanager.com/demo/">
+                <Button className="bg-secondary font-bold uppercase text-black rounded-full px-5 py-3">
+                  Book Demo
+                </Button>
+              </Link>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
-      </>
-      )};
-
-      <section className="bg-white/10 border-y-10 border-white h-screen z-10 relative backdrop-blur-2xl"></section>
-      {/* Decorative Art Section */}
-      <motion.div
-        variants={artContainerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative w-full max-w-5xl my-10 grid overflow-visible"
-        style={{
-          gridTemplateColumns: "1fr",
-          height: "clamp(400px, 50vw, 600px)",
-        }}
-      >
-        <motion.div variants={itemVariants} className="absolute inset-0 z-0">
-          <DesktopCssArt />
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className="absolute z-10 right-[-25vw] sm:right-[-20vw] md:right-[-15vw] lg:right-[-10vw] top-[200px] sm:top-[180px] md:top-[300px]"
-        >
-          <CalendarCssArt>
-            <Image
-              src="/images/heroMobile.png"
-              alt="eversports logo"
-              fill
-              className="object-cover object-[0_2%]"
-            />
-          </CalendarCssArt>
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className="absolute z-10 left-[-25vw] sm:left-[-20vw] md:left-[-15vw] lg:left-[-10vw] top-[200px] sm:top-[180px] md:top-[300px]"
-        >
-          <CalendarCssArt>
-            <Image
-              src="/images/heroMobile2.png"
-              alt="eversports logo"
-              fill
-              className="object-cover object-[0_5%]"
-            />
-          </CalendarCssArt>
-        </motion.div>
-      </motion.div>
+    </>
+  );
+};
 
 export default Hero;
