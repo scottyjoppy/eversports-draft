@@ -9,7 +9,8 @@ interface Props {
   projects: Project[];
 }
 
-const GridBoxSection = ({ projects }: Props) => {
+const 
+GridBoxSection = ({ projects }: Props) => {
   const gridItems = [
     { classes: "lg:col-span-4 md:col-span-2 sm:col-span-1 row-span-1" },
     { classes: "lg:col-span-2 md:col-span-2 sm:col-span-1 row-span-1" },
@@ -23,7 +24,7 @@ const GridBoxSection = ({ projects }: Props) => {
   ];
 
   return (
-    <section className="relative bg-fortiary z-10 rounded-4xl flex justify-center">
+    <section className="relative -mt-[100vh] bg-fortiary z-10 rounded-4xl flex justify-center">
       <div className="grid lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-8 auto-rows-[300px] pt-20 p-10 mx-5 w-full max-w-screen-xl">
         {projects.map((project, index) => {
           const item = gridItems[index] || { classes: "" };

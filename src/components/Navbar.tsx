@@ -22,7 +22,7 @@ export default function Navbar({ children, className }: NavbarProps) {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={transition}
-      className={`${className} z-50 fixed top-0 w-full h-15 bg-white flex justify-between items-center px-5 text-black`}
+      className={`${className} z-50 sticky top-0 w-full h-15 bg-white flex justify-between items-center px-5 text-black drop-shadow-md/5`}
     >
       <div className="relative w-[200px] aspect-[3/1]">
         <Link href="/">

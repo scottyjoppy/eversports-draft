@@ -38,12 +38,15 @@ const CssArtSection = () => {
 
   return (
     <>
-      <section className="bg-tertiary h-screen relative" ref={sectionRef}>
+      <section
+        className="bg-tertiary h-[300vh] relative"
+        ref={sectionRef}
+      >
         <motion.div
           variants={artContainerVariants}
           initial="hidden"
           animate="visible"
-          className="relative w-full h-full"
+          className="sticky w-full h-screen top-0"
         >
           <motion.div
             variants={itemVariants}
