@@ -39,7 +39,7 @@ const CssArtSection = () => {
   return (
     <>
       <section
-        className="bg-tertiary h-[300vh] relative"
+        className="bg-tertiary h-[300vh] relative overflow-clip"
         ref={sectionRef}
       >
         <motion.div

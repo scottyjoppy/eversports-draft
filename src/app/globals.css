@@ -4,12 +4,13 @@
 @theme {
   /* Base colors */
   --color-primary: #1e4d53;
-  --color-secondary: #97f4e5;
+  --color-secondary: #004349;
   --color-tertiary: #23a18c;
   --color-fortiary: #158774;
   --color-ring: #0c5e50;
   --color-black: #121414;
   --color-white: #ffffff;
+  --color-button: #7700ee;
 
   /* Extended palette */
   --color-gray-50: #f8fafa;
@@ -37,4 +38,4 @@ body {
 .grid-area {
   grid-template-columns: 1;
   grid-template-rows: 1;
-} 
+}
