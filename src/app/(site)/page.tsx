@@ -11,7 +11,7 @@ export default async function Home() {
     <>
       <Hero />
       <WhySection />
-      <CssArtSection />
+      {/* <CssArtSection /> */}
       <GridBoxSection projects={projects} />
       <Reviews />
     </>
