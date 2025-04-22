@@ -46,49 +46,51 @@ const CssArtSection = () => {
           variants={artContainerVariants}
           initial="hidden"
           animate="visible"
-          className="sticky w-full h-screen top-0"
+          className="sticky w-full h-screen top-0 flex justify-center"
         >
-          <motion.div
-            variants={itemVariants}
-            style={{
-              y: useTransform(scrollYProgress, [0, 1], [0, -100]),
-            }}
-            className="absolute top-1/5 left-1/4 w-1/2"
-          >
-            <DesktopCssArt />
-          </motion.div>
-          <motion.div
-            variants={itemVariants}
-            style={{
-              y: useTransform(scrollYProgress, [0, 1], [0, 150]),
-            }}
-            className="absolute w-full h-full top-3/7 left-4/6"
-          >
-            <CalendarCssArt>
-              <Image
-                src="/images/heroMobile.png"
-                alt="eversports logo"
-                fill
-                className="object-cover object-[0_2%]"
-              />
-            </CalendarCssArt>
-          </motion.div>
-          <motion.div
-            variants={itemVariants}
-            style={{
-              y: useTransform(scrollYProgress, [0, 1], [0, 100]),
-            }}
-            className="absolute top-3/6 left-1/7"
-          >
-            <CalendarCssArt>
-              <Image
-                src="/images/heroMobile2.png"
-                alt="eversports logo"
-                fill
-                className="object-cover object-[0_5%]"
-              />
-            </CalendarCssArt>
-          </motion.div>
+          <div className="relative h-full w-full max-w-5xl">
+            <motion.div
+              variants={itemVariants}
+              style={{
+                y: useTransform(scrollYProgress, [0, 1], [0, -100]),
+              }}
+              className="absolute top-1/5 left-10 md:left-1/2 md:-translate-x-1/2"
+            >
+              <DesktopCssArt />
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              style={{
+                y: useTransform(scrollYProgress, [0, 1], [0, 150]),
+              }}
+              className="absolute top-3/7 right-0"
+            >
+              <CalendarCssArt>
+                <Image
+                  src="/images/heroMobile.png"
+                  alt="eversports logo"
+                  fill
+                  className="object-cover object-[0_2%]"
+                />
+              </CalendarCssArt>
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              style={{
+                y: useTransform(scrollYProgress, [0, 1], [0, 100]),
+              }}
+              className="absolute top-3/6 left-0"
+            >
+              <CalendarCssArt>
+                <Image
+                  src="/images/heroMobile2.png"
+                  alt="eversports logo"
+                  fill
+                  className="object-cover object-[0_5%]"
+                />
+              </CalendarCssArt>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
     </>

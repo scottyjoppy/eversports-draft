@@ -8,8 +8,9 @@ export const DesktopCssArt = ({ className }: Props) => {
   return (
     <div className={`${className} flex justify-center`}>
       <div
-        className="bg-black/10 w-[80vw] rounded-2xl p-5 pb-15 overflow-hidden"
+        className="bg-black/10 rounded-2xl p-5 pb-15 overflow-hidden"
         style={{
+          width: "clamp(600px, 80vw, 800px)",
           height: "clamp(400px, 50vw, 600px)",
         }}
       >

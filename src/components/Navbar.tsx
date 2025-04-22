@@ -35,7 +35,7 @@ export default function Navbar({ children, className }: NavbarProps) {
         </Link>
       </div>
       {children}
-      <Button className="bg-secondary text-black hover:bg-tertiary">
+      <Button>
         Login
       </Button>
     </motion.nav>
