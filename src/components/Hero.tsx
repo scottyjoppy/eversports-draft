@@ -75,7 +75,7 @@ const Hero = () => {
               </motion.p>
               <motion.div variants={itemVariants} className="w-fit">
                 <Link href="https://www.eversportsmanager.com/demo/">
-                  <Button className="bg-button font-bold uppercase text-white rounded-full px-5 py-3">
+                  <Button className="bg-button uppercase text-white rounded-full px-5 py-3">
                     Book Demo
                   </Button>
                 </Link>
