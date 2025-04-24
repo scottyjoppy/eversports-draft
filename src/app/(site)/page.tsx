@@ -1,9 +1,8 @@
-import CssArtSection from "@/components/CssArtSection";
-import GridBoxSection from "@/components/GridBoxSection";
 import Hero from "@/components/Hero";
-import { getProjects } from "../../../sanity/sanity-utils";
 import Reviews from "@/components/Reviews";
 import WhySection from "@/components/WhySection";
+import { getProjects } from "../../../sanity/sanity-utils";
+import MarketplaceSection from "@/components/MarketplaceSection";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -11,8 +10,9 @@ export default async function Home() {
     <>
       <Hero />
       <WhySection />
+      <MarketplaceSection />
       {/* <CssArtSection /> */}
-      <GridBoxSection projects={projects} />
+      {/* <GridBoxSection projects={projects} /> */}
       <Reviews />
     </>
   );
