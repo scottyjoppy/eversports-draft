@@ -28,7 +28,7 @@ const SlideTabs = ({ onTabChange }: { onTabChange: (index: number) => void }) =>
           opacity: 0,
         }));
       }}
-      className="relative mx-auto flex w-fit rounded-2xl bg-white p-1"
+      className="relative mx-auto flex w-fit rounded-2xl bg-white font-bold p-1"
     >
       <Tab setPosition={setPosition} index={0} onSelect={handleTabSelect}>
         Management

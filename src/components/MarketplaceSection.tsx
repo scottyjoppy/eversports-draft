@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
-import { SetStateAction, useState } from "react";
+import { motion } from "motion/react";
+import { SetStateAction, useEffect, useState } from "react";
 
 /* ╭──────────────────────────────────────────────────────────╮
       │ 1.  Data model & demo content                           │
@@ -33,7 +33,7 @@ const items: Item[] = [
   {
     id: 3,
     url: "/images/carousel/meeting.jpg",
-    title: "No surprises,",
+    title: "No surprises",
     description:
       "Attract new and loyal members with the Eversports Marketplace! For new customers who discover your studio or sports centre through our marketplace, a transparent fee of 25% per booking with a maximum of €75 per customer will be charged. Once new customers become loyal members, there are no fees to pay. Let's strengthen and grow your community together!",
   },
@@ -66,22 +66,64 @@ interface GalleryProps {
   setIndex: React.Dispatch<SetStateAction<number>>;
 }
 
-/*  👉  Change these three constants to control card sizing */
-const EXPANDED_WIDTH = 450; // px (opened card)
-const COLLAPSED_WIDTH = 60; // px (closed cards)
-const CARD_HEIGHT = 400; // px (card height)
+/*  👉  Change these constants to control card sizing */
+const COLLAPSED_WIDTH_MOBILE = "100%"; // Mobile collapsed width (full width)
+const COLLAPSED_WIDTH_DESKTOP = 220; // Desktop collapsed width (narrow collapsed cards)
+const EXPANDED_WIDTH_MOBILE = "100%"; // Expanded width on mobile
+const EXPANDED_WIDTH_DESKTOP = 450; // Expanded width on desktop
+
+// Mobile and desktop specific heights
+const COLLAPSED_HEIGHT_MOBILE = 50; // Mobile collapsed height
+const COLLAPSED_HEIGHT_DESKTOP = 500; // Desktop collapsed height
+const EXPANDED_HEIGHT_MOBILE = 350; // Mobile expanded height
+const EXPANDED_HEIGHT_DESKTOP = 500; // Desktop expanded height
 
 function Gallery({ items, index, setIndex }: GalleryProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile(); // check on initial load
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const collapsedWidth = isMobile
+    ? COLLAPSED_WIDTH_MOBILE
+    : COLLAPSED_WIDTH_DESKTOP;
+  const expandedWidth = isMobile
+    ? EXPANDED_WIDTH_MOBILE
+    : EXPANDED_WIDTH_DESKTOP;
+
+  const collapsedHeight = isMobile
+    ? COLLAPSED_HEIGHT_MOBILE
+    : COLLAPSED_HEIGHT_DESKTOP;
+  const expandedHeight = isMobile
+    ? EXPANDED_HEIGHT_MOBILE
+    : EXPANDED_HEIGHT_DESKTOP;
+
   return (
-    <div className="mx-auto flex w-fit gap-1 py-15">
+    <div className="mx-auto flex w-full gap-1 py-15 overflow-hidden flex-col md:flex-row">
       {items.slice(0, 5).map((item, i) => (
         <motion.div
           key={item.id}
           whileTap={{ scale: 0.95 }}
-          className="relative flex-shrink-0 overflow-hidden rounded-xl h-[400px]"
-          initial={{ width: COLLAPSED_WIDTH }}
-          animate={{ width: index === i ? EXPANDED_WIDTH : COLLAPSED_WIDTH }}
-          exit={{ width: COLLAPSED_WIDTH }}
+          className="relative flex-shrink-0 overflow-hidden rounded-xl w-full"
+          initial={{
+            width: collapsedWidth,
+            height: collapsedHeight,
+          }}
+          animate={{
+            width: index === i ? expandedWidth : collapsedWidth,
+            height: index === i ? expandedHeight : collapsedHeight,
+          }}
+          exit={{
+            width: collapsedWidth,
+            height: collapsedHeight,
+          }}
           transition={{ type: "spring", stiffness: 250, damping: 30 }}
           onClick={() => setIndex(i)}
           onMouseEnter={() => setIndex(i)}
@@ -95,39 +137,45 @@ function Gallery({ items, index, setIndex }: GalleryProps) {
             transition={{ type: "spring", stiffness: 300, damping: 35 }}
           />
 
-          <AnimatePresence mode="wait">
-            {index === i && (
-              <motion.article
-                key="overlay"
+          {index !== i && (
+            <motion.h1
+              className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center rounded-2xl text-xl font-semibold text-white bg-black/20 px-2 `}
+            >
+              {item.title}
+            </motion.h1>
+          )}
+
+          {index === i && (
+            <motion.article
+              key="overlay"
+              variants={article}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              className="absolute inset-0 flex flex-col justify-end space-y-2 rounded-xl bg-gradient-to-t from-gray-900/90 to-transparent p-4"
+            >
+              <motion.h1
                 variants={article}
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                className="absolute inset-0 flex flex-col justify-end space-y-2 rounded-xl bg-gradient-to-t from-gray-900/70 to-transparent p-4"
+                className="text-2xl font-semibold text-tertiary"
               >
-                <motion.h1
+                {item.title}
+              </motion.h1>
+              {item.subTitle && (
+                <motion.h2
                   variants={article}
-                  className="text-2xl font-semibold text-tertiary"
+                  className="text-lg font-medium text-white"
                 >
-                  {item.title}
-                </motion.h1>
-                {item.subTitle && (
-                  <motion.h2
-                    variants={article}
-                    className="text-lg font-medium text-white"
-                  >
-                    {item.subTitle}
-                  </motion.h2>
-                )}
-                <motion.p
-                  variants={article}
-                  className="text-sm leading-tight text-white/90"
-                >
-                  {item.description}
-                </motion.p>
-              </motion.article>
-            )}
-          </AnimatePresence>
+                  {item.subTitle}
+                </motion.h2>
+              )}
+              <motion.p
+                variants={article}
+                className="text-sm leading-tight text-white/90"
+              >
+                {item.description}
+              </motion.p>
+            </motion.article>
+          )}
         </motion.div>
       ))}
     </div>
@@ -138,8 +186,11 @@ export default function MarketplaceSection() {
   const [activeIndex, setActiveIndex] = useState<number>(0); // start with first card
 
   return (
-    <section className="relative mx-auto flex w-full flex-col items-center justify-center">
-      <Gallery items={items} index={activeIndex} setIndex={setActiveIndex} />
+    <section className="relative mx-auto flex w-full md:w-[80vw] flex-col items-center justify-center overflow-hidden px-3">
+      <div className="flex justify-center">
+        {/* 80vw for desktop */}
+        <Gallery items={items} index={activeIndex} setIndex={setActiveIndex} />
+      </div>
     </section>
   );
 }

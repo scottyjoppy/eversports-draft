@@ -27,10 +27,10 @@ const WhySection = () => {
 
   return (
     <>
-      <section className="relative bg-white w-full h-[200vh] overflow-clip ">
-        <div className="sticky top-0 translate-y-10 flex justify-center items-center gap-10 h-screen">
+      <section className="relative bg-white w-full md:h-[200vh] min-h-[50rem] overflow-clip ">
+        <div className="md:sticky top-0 md:translate-y-10 flex justify-center items-center gap-10 min-h-screen">
           <motion.div className="absolute top-[5%] left-1/2 -translate-x-[50%] h-full">
-            <h1 className="text-[2rem] flex items-center gap-3">
+            <h1 className="md:text-[4rem] text-[2rem] flex items-center gap-3">
               Why <FlipLink>Eversports</FlipLink>?
             </h1>
           </motion.div>
@@ -38,13 +38,13 @@ const WhySection = () => {
             <motion.div
               variants={stagger}
               animate="show"
-              className="relative grid gap-4 text-2xl mx-10 
+              className="relative grid gap-4 md:text-2xl text-lg mx-10 
                 [&>*]:flex 
                 [&>*]:justify-center 
                 [&>*]:items-center 
                 [&>*]:bg-secondary 
                 [&>*]:text-white 
-                [&>*]:drop-shadow-2xl/30 
+                md:[&>*]:drop-shadow-2xl/30 
                 [&>*]:p-10 
                 [&>*]:rounded-2xl 
                 md:[&>*]:absolute"

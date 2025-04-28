@@ -39,7 +39,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative" ref={sectionRef}>
+      <section className="relative -mt-10" ref={sectionRef}>
         <div className="sticky overflow-hidden top-0">
           <motion.video
             src="https://www.eversportsmanager.com/wp-content/uploads/2024/10/ennlfrvideo.mp4"
