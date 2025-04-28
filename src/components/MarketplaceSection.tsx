@@ -73,7 +73,7 @@ const CARD_HEIGHT = 400; // px (card height)
 
 function Gallery({ items, index, setIndex }: GalleryProps) {
   return (
-    <div className="mx-auto flex w-fit gap-1 pb-20 pt-10">
+    <div className="mx-auto flex w-fit gap-1 py-15">
       {items.slice(0, 5).map((item, i) => (
         <motion.div
           key={item.id}
